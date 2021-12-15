@@ -3,20 +3,56 @@
 
 <head>
     <style>
-        div {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-        position:absolute;    
-    }
+        img {
+            width: 150px;
+            height: 100px;
+            position: absolute;
+        }
+
+        body {
+            background-color: black;
+        }
     </style>
 </head>
 <boby>
-    <div id="box"></div>
+    <img id="box"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSKIru5MjVVqWzMtNTMUv2QR9GG6rbsxO2yg&usqp=CAU">
 </boby>
 
 </html>
 <script>
-var box= document.getElementById("box")
-box.style.Left="100px"
+    var x = 0
+    var y = 0
+    var speedx = 6
+    var speedy = 6
+    var box = document.getElementById("box")
+    setInterval(update, 50)
+    box.addEventListener("click", boxClick)
+    function update() {
+        x = x + speedx
+        box.style.left = x + "px"
+
+        if (x >= window.innerWidth - 155) {
+            speedx = - speedx
+        }
+        if (x <= 0) {
+            speedx = - speedx
+        }
+        box.style.top = y + "px"
+        y = y + speedy
+        if (y >= window.innerHeight - 105) {
+            speedy = - speedy
+        }
+        if (y <= 0) {
+            speedy = - speedy
+        }
+
+
+
+    }
+    function boxClick(){
+        speedx= speedx + 5
+
+
+    }
 </script>

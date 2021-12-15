@@ -1,25 +1,96 @@
-<!doctype.html>
+<!doctype html>
 <html>
-<head><style>  img{ 
-height: 400px; 
-}
-p1 {
-    color: red;
-}
-body { 
-    color:blue;
-}
-</style></head>
-<body> 
-<img src="https://image.shutterstock.com/image-vector/blue-yeti-260nw-400962544.jpg">
 
-<p1>hi I am red </p1>
+<head>
+    <style>
+        img {
+            height: 400px;
+        }
 
-lmao
+        p1 {
+            color: rgb(255, 0, 0);
+        }
+
+        body {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="upgrade">upgrade</div>
+    <div id="cost">cost=5</div>
+    <img id="img" src="https://image.shutterstock.com/image-vector/blue-yeti-260nw-400962544.jpg">
+    <div id="score">
+        score=
+    </div>
+    <p1>hi I am red </p1>
+
+    lmao
 
 </body>
 
+</html>
+<script>
+    var score = 0
+    var scoreIncreaseAmmount = 0
+    var cost = 5
+    var img = document.getElementById("img")
+    img.addEventListener("click", imgClick)
+    document.getElementById("upgrade").addEventListener("click", upgradeclick)
 
+    function imgClick() {
+        score = score + 1
+        document.getElementById("score").innerText = "score=" + score
+
+
+
+    }
+    setInterval(update, 500)
+    function update() {
+
+        score = score + scoreIncreaseAmmount
+        document.getElementById("score").innerText = "score=" + score
+
+
+    }
+
+    function upgradeclick() {
+        if (score >= cost) {
+            scoreIncreaseAmmount = scoreIncreaseAmmount + 1
+            score = score - cost
+            cost = cost + 5
+            document.getElementById("cost").innerText = "cost=" + cost
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 
 
 
